@@ -1,29 +1,44 @@
-//==============================================================================
-///
-/// @file
-/// @brief Программа для робота Карела и стартовая функция
-///
-//==============================================================================
-
-
 #include "karel.h"
 
 
 //==============================================================================
 /// Программа для робота Карела
 ///
-void KarelProgram() {
+
 /// @todo Добавить программу для Карела
 
+
+///
+void turnRight() {
+TurnLeft();
+TurnLeft();
+TurnLeft();
 }
 
+void turnAround() {
+TurnLeft();
+TurnLeft();
+}
 
-//==============================================================================
-/// Стартовая функция
-///
+void KarelProgram() {
+    while (!BeepersPresent()) {
+        TurnLeft();
+    if (FrontIsClear()) {
+        Move();
+    } else {
+        turnRight();
+    if (FrontIsClear()) {
+        Move();
+    } else {
+        turnRight();
+    if (FrontIsClear()) {
+        Move();
+    } else {
+        turnRight();
+}}}}}
+
 int main() {
-    LoadWorld("worlds/.w");
+    LoadWorld("worlds/Maze_01.w");
     KarelProgram();
     Finish();
-    return 0;
-}
+    return 0;}
